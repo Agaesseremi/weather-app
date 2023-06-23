@@ -1,0 +1,31 @@
+<style type="text/css">
+    /* Weather */
+    .weather.card {
+        margin-top: 4vh;
+    }
+
+    .weather.card .card-content {
+        background: #0b0829;
+    }
+
+    .weather.card .card-action {
+        background: #120944;
+    }
+
+    .weather .temperature {
+        margin-left: 4vh;
+        font-size: 120px;
+        font-family: 'Roboto', sans-serif;
+        text-shadow: -1px 0 #61dafb, 0 1px #61dafb, 1px 0 #61dafb, 0 -1px #61dafb;
+    }
+</style>
+
+
+<div class="weather card blue-grey darken-1" *ngIf="weatherData.length > 0">
+    <div class="card-content white-text">
+        <span class="card-title">{{ weatherData[0].name }}</span>
+        <img src="../assets/{{getWeatherIcon()}}.svg" alt="../assets/{{getWeatherIcon()}}">
+        <span class="temperature">{{ weatherData[0].main.temp | number:'1.0-0' }}°C</span>
+        <div class="wind">Wind {{ weatherData[0].wind.speed }}km/h ({{ weatherData[0].wind.deg }}°)</div>
+    </div>
+</div>
